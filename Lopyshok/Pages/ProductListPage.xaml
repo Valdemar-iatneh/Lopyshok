@@ -1,0 +1,41 @@
+﻿<Page x:Class="Lopyshok.Pages.ProductListPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Lopyshok.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="720" d:DesignWidth="1080"
+      Background="#fffaaa"
+      Title="ProductListPage">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="5*"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="4*"/>
+        </Grid.RowDefinitions>
+        <StackPanel
+            Grid.Row="0"
+            Grid.Column="1"
+            Orientation="Vertical">
+            <StackPanel
+                Orientation="Horizontal">
+                <ComboBox/>
+                <ComboBox/>
+            </StackPanel>
+            <TextBox/>
+        </StackPanel>
+        <ListView
+            x:Name="ProductLV"
+            Grid.Row="1"
+            Grid.Column="1"
+            Margin="10">
+            
+        </ListView>
+        
+    </Grid>
+</Page>
