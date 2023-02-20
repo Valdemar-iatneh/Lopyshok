@@ -5,37 +5,122 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Lopyshok.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="720" d:DesignWidth="1080"
+      d:DesignHeight="700" d:DesignWidth="1080"
       Background="#fffaaa"
       Title="ProductListPage">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
-            <ColumnDefinition Width="5*"/>
+            <ColumnDefinition Width="10*"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition/>
             <RowDefinition Height="4*"/>
+            <RowDefinition Height="0.3*"/>
         </Grid.RowDefinitions>
-        <StackPanel
-            Grid.Row="0"
+        <Grid
             Grid.Column="1"
-            Orientation="Vertical">
-            <StackPanel
-                Orientation="Horizontal">
-                <ComboBox/>
-                <ComboBox/>
-            </StackPanel>
-            <TextBox/>
-        </StackPanel>
+            Grid.Row="0"
+            Margin="0 20">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <TextBox
+                x:Name="SearchTB"
+                Grid.Column="0"
+                Margin="0 20" 
+                TextChanged="SearchTB_TextChanged"/>
+            <ComboBox
+                x:Name="SortingCB"
+                Grid.Column="1"
+                Margin="20 20 0 20"
+                SelectionChanged="SortingCB_SelectionChanged">
+                <ComboBoxItem 
+                    Content="Без сортировки"/>
+                <ComboBoxItem 
+                    Content="Минимальная стоимость по убыванию"/>
+                <ComboBoxItem 
+                    Content="Минимальная стоимость по возрастанию"/>
+                <ComboBoxItem 
+                    Content="Номер цеха по убыванию"/>
+                <ComboBoxItem 
+                    Content="Номер цеха по возрастанию"/>
+                <ComboBoxItem 
+                    Content="От А до Я"/>
+                <ComboBoxItem
+                    Content="От Я до А"/>
+            </ComboBox>
+            <ComboBox
+                x:Name="TypeCB"
+                Grid.Column="2"
+                Margin="20 20 0 20"
+                DisplayMemberPath="Name"
+                SelectionChanged="TypeCB_SelectionChanged"/>
+        </Grid>
         <ListView
             x:Name="ProductLV"
+            HorizontalContentAlignment="Stretch"
+            SelectionChanged="ProductLV_SelectionChanged"
             Grid.Row="1"
-            Grid.Column="1"
-            Margin="10">
-            
+            Grid.Column="1">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Border
+                        Margin="5"
+                        BorderBrush="Black"
+                        BorderThickness="1">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition Width="auto"/>
+                            </Grid.ColumnDefinitions>
+                            <Image
+                                Grid.Column="0">
+                                <Image.Source>
+                                    <Binding Path="Image">
+                                        <Binding.TargetNullValue>
+                                            <ImageSource>/Images/default_picture.png</ImageSource>
+                                        </Binding.TargetNullValue>
+                                    </Binding>
+                                </Image.Source>
+                            </Image>
+                            <StackPanel 
+                                Grid.Column="1"
+                                Orientation="Vertical">
+                                <TextBlock>
+                                    <Run Text="{Binding ProductType.Name}"/>
+                                    <Run Text="|"/>
+                                    <Run Text="{Binding Name}"/>
+                                </TextBlock>
+                                <TextBlock
+                                    Text="{Binding Id}"/>
+                                <TextBlock Grid.Column="2">
+                                    <Run Text="Материалы:"/>
+                                    <Run Text="{Binding Materials}"/>
+                                </TextBlock>
+                            </StackPanel>
+                            <TextBlock 
+                                Grid.Column="2">
+                                <Run Text="{Binding MinPrice}"/>
+                                <Run Text=" руб."/>
+                            </TextBlock>
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </ListView.ItemTemplate>
         </ListView>
-        
+        <StackPanel 
+            Orientation="Horizontal"
+            Grid.Column="1"
+            Grid.Row="3">
+            <Button
+                x:Name="NewProductBtn"
+                Content="Добавить продукцию"
+                Click="NewProductBtn_Click"/>
+        </StackPanel>
     </Grid>
 </Page>

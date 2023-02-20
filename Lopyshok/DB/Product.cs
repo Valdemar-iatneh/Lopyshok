@@ -23,7 +23,7 @@ namespace Lopyshok.DB
         public int Id { get; set; }
         public string Name { get; set; }
         public Nullable<int> MinPrice { get; set; }
-        public string Image { get; set; }
+        public byte[] Image { get; set; }
         public Nullable<int> ProductTypeId { get; set; }
         public Nullable<int> PeopleCount { get; set; }
         public Nullable<int> ManufactoryNumber { get; set; }

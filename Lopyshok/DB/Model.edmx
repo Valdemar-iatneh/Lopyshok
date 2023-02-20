@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Lopyshok_AvvakumovModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="Lopyshok_AvvakumovModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Material">
           <Key>
             <PropertyRef Name="Id" />
@@ -31,8 +31,8 @@
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="varchar" MaxLength="50" />
-          <Property Name="MinPrice" Type="int" />
-          <Property Name="Image" Type="varchar" MaxLength="100" />
+          <Property Name="MinPrice" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="Image" Type="varbinary" MaxLength="100" />
           <Property Name="ProductTypeId" Type="int" />
           <Property Name="PeopleCount" Type="int" />
           <Property Name="ManufactoryNumber" Type="int" />
@@ -159,8 +159,7 @@
             <End Role="ProductMaterial" EntitySet="ProductMaterial" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="Lopyshok_AvvakumovModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -195,7 +194,7 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="MinPrice" Type="Int32" />
-          <Property Name="Image" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Image" Type="Binary" MaxLength="100" FixedLength="false" />
           <Property Name="ProductTypeId" Type="Int32" />
           <Property Name="PeopleCount" Type="Int32" />
           <Property Name="ManufactoryNumber" Type="Int32" />
@@ -299,7 +298,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="LopyshokEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="Lopyshok_AvvakumovEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Material" EntityType="Self.Material" />
           <EntitySet Name="MaterialType" EntityType="Self.MaterialType" />
           <EntitySet Name="Product" EntityType="Self.Product" />
@@ -333,7 +332,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Lopyshok_AvvakumovModelStoreContainer" CdmEntityContainer="LopyshokEntities">
+        <EntityContainerMapping StorageEntityContainer="Lopyshok_AvvakumovModelStoreContainer" CdmEntityContainer="Lopyshok_AvvakumovEntities">
           <EntitySetMapping Name="Material">
             <EntityTypeMapping TypeName="Lopyshok_AvvakumovModel.Material">
               <MappingFragment StoreEntitySet="Material">

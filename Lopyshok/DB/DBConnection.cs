@@ -8,6 +8,6 @@ namespace Lopyshok.DB
 {
     public class DBConnection
     {
-        public static LopyshokEntities connection = new LopyshokEntities();
+        public static Lopyshok_AvvakumovEntities connection = new Lopyshok_AvvakumovEntities();
     }
 }

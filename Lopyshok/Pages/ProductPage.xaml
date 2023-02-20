@@ -5,10 +5,125 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Lopyshok.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="900" d:DesignWidth="1080"
+      Background="Aqua"
       Title="ProductPage">
 
-    <Grid>
-        
-    </Grid>
+    <ScrollViewer>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="2*"/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <StackPanel
+                Grid.Row="0"
+                Grid.Column="1"
+                Orientation="Vertical"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center">
+                <Image
+                    x:Name="Image"
+                    Width="100"
+                    Height="100"/>
+                <Button
+                    x:Name="ChangeImg"
+                    Content="Изменить изображение"/>
+            </StackPanel>
+            <StackPanel
+                Grid.Row="1"
+                Grid.Column="1"
+                Orientation="Horizontal"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Center">
+                <TextBlock
+                    Text="Артикул"/>
+                <TextBox
+                    x:Name="IdTB"
+                    Width="100"/>
+            </StackPanel>
+            <StackPanel
+                Grid.Row="2"
+                Grid.Column="1"
+                Orientation="Horizontal"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Center">
+                <TextBlock
+                    Text="Наименование"/>
+                <TextBox
+                    x:Name="NameTB"
+                    Width="100"/>
+            </StackPanel>
+            <StackPanel
+                Grid.Row="3"
+                Grid.Column="1"
+                Orientation="Horizontal"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Center">
+                <TextBlock
+                    Text="Тип продукта"/>
+                <ComboBox
+                    x:Name="TypeCB"
+                    Width="100"/>
+            </StackPanel>
+            <StackPanel
+                Grid.Row="4"
+                Grid.Column="1"
+                Orientation="Horizontal"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Center">
+                <TextBlock
+                    Text="Количество человек для производства"/>
+                <TextBox
+                    x:Name="PeopleCountTB"
+                    Width="100"/>
+            </StackPanel>
+            <StackPanel
+                Grid.Row="5"
+                Grid.Column="1"
+                Orientation="Horizontal"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Center">
+                <TextBlock
+                    Text="Номер производственного цеха"/>
+                <TextBox
+                    x:Name="ManufactoryNumberTB"
+                    Width="100"/>
+            </StackPanel>
+            <StackPanel
+                Grid.Row="6"
+                Grid.Column="1"
+                Orientation="Horizontal"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Center">
+                <TextBlock
+                    Text="Минимальная стоимость для агента"/>
+                <TextBox
+                    x:Name="MinPriceTB"
+                    Width="100"/>
+            </StackPanel>
+            <StackPanel
+                Grid.Row="7"
+                Grid.Column="1"
+                Orientation="Horizontal"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Center">
+                <TextBlock
+                    Text="Описание"/>
+                <RichTextBox
+                    x:Name="DescriptionRTB"
+                    Width="100"/>
+            </StackPanel>
+        </Grid>
+    </ScrollViewer>
 </Page>

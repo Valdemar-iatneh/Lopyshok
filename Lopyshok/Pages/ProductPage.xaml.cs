@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Lopyshok.DB;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,7 +21,7 @@ namespace Lopyshok.Pages
     /// </summary>
     public partial class ProductPage : Page
     {
-        public ProductPage()
+        public ProductPage(Product product)
         {
             InitializeComponent();
         }

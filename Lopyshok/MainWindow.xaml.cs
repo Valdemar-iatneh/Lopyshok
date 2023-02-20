@@ -23,7 +23,7 @@ namespace Lopyshok
         public MainWindow()
         {
             InitializeComponent();
-            mainFrame.Navigate(new Pages.ProductListPage());
+            mainFrame.Navigate(new Pages.ProductPage(new DB.Product()));
         }
     }
 }
